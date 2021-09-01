@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Register Form{% endblock title %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="col-12 mb-5">
+<h1>Register Form</div>
+</div>
+<div class="col-12">
+    <form action="{% url 'visitor-register' %}" method="POST" id="register-form">
+        {% csrf_token %}
+        <div class="mb-3">
+            {{ form.mobile_number | as_crispy_field }}
+        </div>
+        <div class="mb-3">
+            {{ form.first_name | as_crispy_field }}
+        </div>
+        <div class="mb-3">
+            {{ form.last_name | as_crispy_field }}
+        </div>
+        <div class="mb-3">
+            {{ form.date_of_birth | as_crispy_field }}
+        </div>
+        <div class="mb-3">
+            {{ form.gender | as_crispy_field }}
+        </div>
+        <div class="mb-5">
+            {{ form.email | as_crispy_field }}
+        </div>
+        <div class="mt-5">
+            <div class="d-grid gap-2">
+                <button class="btn btn-purple" type="submit">Register</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}
+
+{% block applications_js %}
+{% load static %}
+<script src="{% static 'visitor/js/visitor_scripts.js' %}"></script>
+{% endblock applications_js %}

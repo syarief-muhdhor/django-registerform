@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Login Form{% endblock title %}
+
+{% block content %}
+<div class="col-12">
+    <div class="d-grid gap-2">
+        <button class="btn btn-purple" type="button" onclick="location.href='{% url 'dashboard' %}';">Login</button>
+    </div>
+</div>
+{% endblock content %}
